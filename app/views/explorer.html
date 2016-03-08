@@ -1,0 +1,143 @@
+<div class="row main-wrapper">
+  
+  <!-- Association Listing Section -->
+  <div class="col-md-4">
+    <h2>{{mirror.displayName}}</h2>
+    <button ng-click="previous()" class="btn btn-default">Back</button>
+
+    <div class="scroll">
+      <div ng-repeat="assoc in associations | filter:search.displayText"
+           ng-click="select(assoc)">
+        <div class="association"
+             ng-style="{ 'background-color': assoc.customColor }"
+             ng-class="{'selected': assoc.selected}">
+          <div class="row">
+            <div class="col-md-1">
+              <span ng-show="assoc.isGrouping" class="folder"><img src="images/folder.ico" /></span>
+              <span ng-show="assoc.isPhantom" class="glyphicon glyphicon-link"></span>
+              <span ng-show="!assoc.isGrouping" class="glyphicon glyphicon-file"></span>
+            </div>
+            <div class="col-md-10">
+              <p>{{ matchFirstLn(assoc.displayText) }}</p>
+              <a ng-show="assoc.isPhantom" ng-href="{{assoc.associatedItem}}" style="word-break:normal">{{ assoc.associatedItem }}</a>
+            </div>
+          </div> <!-- row -->
+          <div class="row buttons" ng-show="assoc.selected">
+            <!-- Buttons -->
+            <div class="col-md-6">
+              <button class="btn btn-default" ng-click="navigate(assoc.guid)" ng-show="assoc.isGrouping">Enter</button>
+            </div>
+            <div class="col-md-6">
+              <button ng-click="deleteAssoc(assoc.guid)" class="pull-right btn btn-danger">DELETE</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+
+  
+  <div class="col-md-8" ng-switch on="editSection">
+    <!-- <button class="btn-default btn btn-lg"
+            ng-click="editSection = 'assoc-editor'">Association Editor</button>
+    <button class="btn-default btn btn-lg"
+            ng-click="editSection = 'new-phantom'">Create Phantom</button> -->
+           <!--  <div class="col-md-2"> -->
+  <!-- </div> -->
+  <div class="taRt">
+   <button class="btn-default btn" ng-click="editSection = 'new-folder'"><b>+</b> New Folder</button>
+   <button ng-click="save()" class="btn btn-primary">Save</button>
+   <button ng-click="refresh()" class="btn btn-primary">Refresh</button>
+  </div>
+  <p class="lead">
+      Search for links on Google to save in the folders
+  </p>
+  <!-- Association Editing Section -->
+  <div ng-switch-when="assoc-editor" class="association-editor">
+    
+    <div ng-if="selectedAssoc">
+      <!-- <h2>Editor</h2>
+      <p class="lead" ng-hide="selectedAssoc">
+        Search for links on Google to save in the folders
+      </p>
+      <h3>{{selectedAssoc.localItem}}</h3>
+
+      <textarea ng-model="selectedAssoc.displayText"></textarea>
+ -->
+      <!-- <h2>Tags</h2>
+        <input type="text" ng-model="tagValue">
+        <button ng-click="selectedAssoc.addTag(tagValue)"><span class="glyphicon glyphicon-plus"></span></button>
+      <h3>Current Tags</h3>
+      <div class="tag" ng-repeat="tag in selectedAssoc.listTags()">{{tag}}
+        <button ng-click="selectedAssoc.deleteTag(tag)">
+          <span class="glyphicon glyphicon-remove"></span>
+        </button>
+      </div> -->
+
+
+    </div>
+          <!-- Creates a binding to the custom namespace attribute -->
+    
+  </div>
+
+  <!-- Phantom Creation Section -->
+  <div ng-switch-when="new-phantom" class="phantom">
+    <h2>New Phantom</h2>
+      <form>
+        <label>Display Text</label>
+        <br/>
+        <textarea ng-model="phantomRequest.displayText"></textarea>
+        <br/>
+        <label>URL</label>
+        <br/>
+        <input ng-model="phantomRequest.itemURI" type="text">
+      </form>
+      <button ng-click="createPhantom()" class="btn btn-lg btn-default">Create</button>
+    </div>
+
+    <!--Google Search Section-->
+    <!-- <div class = "searchFunction" data-target="#myModal" data-toggle="{{modal}}" ng-click="clickFunc($event)"> -->
+    <div class = "gs-webResult" ng-click="clickFunc($event)">
+      <gcse:search></gcse:search>   
+    </div> 
+    <div ng-if="selectedAssoc" class="tagger">
+      <p><b>Add color-tags</b><h6><i>for better referencing</i></h6></p>
+      <input type="color"
+             ng-model="selectedAssoc.customColor"
+             ng-model-options="{ getterSetter: true }">
+
+      <!-- This button resets the color by setting the value to null -->
+      <button ng-click="selectedAssoc.customColor = null">Reset Color</button>
+    </div>
+<!-- <button type="button" class="btn btn-default" ng-click="open()">
+      <span class="glyphicon glyphicon-plus"></span>  
+    </button> -->
+
+
+  <!-- Folder Creation Section -->
+  <div ng-switch-when="new-folder" class="folder">
+    <h2>New Folder</h2>
+      <form>
+        <label>Display Text</label>
+        <br/>
+        <textarea ng-model="folderRequest.displayText"></textarea>
+        <br/>
+        <label>Folder Name</label>
+        <br/>
+        <input ng-model="folderRequest.localItem" type="text" style="padding: 5px 2px;">
+      <button ng-click="createFolder()" class="btn btn-default btn-success">Create</button>
+      </form>
+    </div>
+  </div>
+
+  
+
+  </div>
+  <script type="text/javascript">
+$(document).ready(function() {
+/** work when all HTML loaded except images and DOM is ready **/
+// your code
+alert('in');
+});
+  </script>

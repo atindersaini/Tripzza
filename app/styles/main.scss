@@ -1,0 +1,155 @@
+$icon-font-path: "../bower_components/bootstrap-sass-official/assets/fonts/bootstrap/";
+// bower:scss
+@import "bootstrap-sass-official/assets/stylesheets/_bootstrap.scss";
+// endbower
+
+@import "//fonts.googleapis.com/css?family=Open+Sans:300,400,700)";
+
+body {
+  font-family: "Open Sans";
+  font-weight: 400;
+  background: url("https://s-media-cache-ak0.pinimg.com/236x/79/5c/ab/795cabc4647f73b365e2e6eabd0f34dc.jpg");
+}
+.container{
+  box-shadow: 0px 5px 35px #AAA;
+  background: #fff;
+  padding: 0 !important;
+
+  .header{
+    padding-left: 5px;
+  }
+}
+h1, h2 {
+  font-weight: 300;
+}
+.logo{
+  background: url("tripzza-logo.jpg");
+}
+
+.association {
+  padding: 5px 5px;
+  border: 1px solid #a5a5a5;
+  margin: 0px 10px 10px 0px;
+  transition: background-color 0.25s ease;
+  
+  &:hover {
+      background-color: #eaeaea;
+    }
+  
+  .glyphicon {
+    font-size: 100%;
+
+    &.glyphicon-folder-close {
+    }
+
+    &.glyphicon-file {
+    }
+    
+  }
+
+  // The '&' symbol is because we want to OVERWRITE the same values as the
+  // parent. Otherwise we won't get a change.
+  &.selected {
+    background-color: #eaeaea;
+    box-shadow: 0px 5px 5px #AAA;
+    &:hover, &:active {
+    }
+  }
+
+  h3 {
+    overflow: hidden;
+    font-size: 150%;
+    padding: 0;
+    margin: 5px;
+  }
+
+  &:hover, &:active {
+  }
+}
+
+.scroll {
+  margin-top: 10px;
+  overflow: auto;
+  min-height: 400px;
+  height: auto;
+}
+
+.editor {
+
+}
+
+textarea {
+  height: 150px;
+  width: 100%;
+}
+
+.nav, .pagination, .carousel, .panel-title a { cursor: pointer; }
+
+.taRt{
+  padding: 20px 0 13px 0;
+  text-align: right;
+ }
+ .col-md-8 .lead{
+ margin-bottom: 10px !important; }
+
+.container .jumbotron, .container-fluid .jumbotron {
+    padding: 10px 30px !important;
+    margin-bottom: 0px !important;
+}
+.main-wrapper{
+  padding: 10px;
+}
+.separator-panel{
+  height: 2px;
+}
+.bg1{
+    background-color: #e88449;
+  }
+.bg2{
+    background-color: #ecc539;
+}
+.bg3{
+    background-color: #77ac54;
+}
+.bg4{
+    background-color: #c1514d;
+}
+.bg5{
+    background-color: #4b67b0;
+}
+.bg6{
+    background-color: #47c9d7;
+}
+.bg7{
+    background-color: #a5a5a5;
+}
+
+.folder img{
+  height: 24px;
+  width: 24px;
+}
+.glyphicon{
+  left: 5px;
+}
+.tagger{
+  padding: 10px 0;
+}
+.tagger input{
+  height: 24px;
+  width: 24px;
+}
+.gsc-search-button input{
+    background-color: #337ab7 !important;
+    border-color: #2e6da4 !important;
+    color: #fff !important;
+    border-radius: 4px !important;
+    cursor: pointer !important;
+    font-size: 14px !important;
+    font-weight: normal !important;
+    line-height: 1.42857 !important;
+    padding: 0 12px !important;
+    text-align: center !important;
+    vertical-align: middle !important;
+    white-space: nowrap !important;
+    font-family: "Open Sans" !important;
+}

@@ -1,0 +1,35 @@
+<div class="modal-header">
+              <h3 class="modal-title">About to save the link, Add description here!</h3>
+            </div>
+            <div class="modal-body">
+              <form name="createPane" novalidate class="simple-form">
+            <div class="form-group">
+                  <h4>Description:</h4>                                     
+              <input ng-model="newPane.sectionTitle" type="text" name="paneName" placeholder="Enter the title of the pane" class = 'form-control' required>
+            </div> 
+            <!-- <div class="form-group">
+              <h4>URL Details</h4>              
+              <fieldset  data-ng-repeat="newUrlPropertiesItem in newUrlProps">
+              <div class="form-group">
+                  <input ng-model="newUrlPropertiesItem.title" type="text" name="label" placeholder="Enter the label for URL" class = 'form-control'>
+                <input ng-model="newUrlPropertiesItem.url" type="text" name="url" placeholder="Paste the URL of your choice" class = 'form-control'>
+              </div>
+
+                <button class="remove btn btn-danger" ng-show="$last" ng-click="removeChoice()">
+                  <span class="glyphicon glyphicon-remove"></span>
+                </button>
+              </fieldset>
+              <button class="addFields btn btn-success" ng-click="addFields()">
+                <span class="glyphicon glyphicon-plus"></span>
+              </button>
+            </div> -->
+      
+            
+
+
+            </div>
+            <div class="modal-footer">
+              <button class="btn btn-primary" ng-click="createNewPane(newPane)" type="submit" value="submit" >Add</button>
+              <button class="btn btn-warning" ng-click="cancel()">Cancel</button>
+            </div>
+            </form>
